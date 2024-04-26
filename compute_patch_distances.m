@@ -18,26 +18,21 @@ function distances = compute_patch_distances(patch_list, patch, mask, weights)
 
     % TODO: implement
     num_patches = size(patch_list); 
-    distances = zeros([num_patches(4)]); % n
+    distances = zeros([num_patches(4), 1]); % n
 
-    size(weights)
-    size(mask)
 
-    masked_weight = mask .* weights
+    masked_weight = mask .* weights; 
     d_patch = double(patch); 
     for i = 1:num_patches 
         dist = double(patch_list(:, :, :, i)) - d_patch; 
-
-        who
-        dist = dist .* masked_weight; % maybe do this after the .^2
-        size(sum(dist .^ 2, 3))
-        distances(i) = sum(dist .^ 2, 3); 
+        dist = sum(dist, 3) .^2; 
+        distances(i) = sum(dist, "all"); 
         
     end
 
-    normalizer = sum(sum(masked_weight)); 
+    normalizer = 1 / sum(sum(masked_weight)); 
 
-    distances = distances / normalizer; 
+    distances = normalizer * distances; 
 
 
 end

@@ -92,7 +92,7 @@ function [texture, copy_map] = synthesize_texture(sample, texture_size, patch_si
             
             % Select candidate patches
             distances = compute_patch_distances(patch_list, patch, patch_mask, weights);
-            candidates = find(distances <= (1 + tolerance) * min(distances)); 
+            candidates = find(distances <= (1 + tolerance) * min(distances));
             
             % Randomly select one candidate
             candidate_id = round(rand(1) * (length(candidates) - 1)) + 1;
