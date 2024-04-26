@@ -39,10 +39,12 @@ range_y = (margin(1) + 1):(image_size(1) - margin(1));
 for x = range_x
     
     for y = range_y
-        % [x, y] is the center of the current patch
+        % [x, y] is the center of th
         % patch_list(:, :, :, counter) = image(_, _, idx)
         patch_list(:, :, :, counter) = image((x - margin(2)):(x + margin(2)), (y - margin(1)):(y + margin(1)), :); 
-        coordinates(counter, :) = [x, y]; 
+        counter
+        coordinates(counter)
+        coordinates(counter) = [x, y]; 
         counter = counter + 1; 
     end
 

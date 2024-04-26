@@ -18,5 +18,13 @@ function distances = compute_patch_distances(patch_list, patch, mask, weights)
 
     % TODO: implement
 
+
 end
+
+
+
+
+
+
+
 
