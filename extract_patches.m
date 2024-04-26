@@ -49,7 +49,7 @@ for x = range_x
 
 end
 
-
+counter - 1 % for deafult image prints 1764. This is correct (acording to teacher). 
 % assert(counter - 1 == num_patches)
 
 end
