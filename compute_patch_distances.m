@@ -26,7 +26,9 @@ function distances = compute_patch_distances(patch_list, patch, mask, weights)
     for i = 1:num_patches 
         dist = double(patch_list(:, :, :, i)) - d_patch; 
         dist = sum(dist, 3) .^2; 
+        dist = dist .* masked_weight; 
         distances(i) = sum(dist, "all"); 
+        % recheck this distance function
         
     end
 
