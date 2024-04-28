@@ -16,20 +16,27 @@ function distances = compute_patch_distances(patch_list, patch, mask, weights)
 %   OUT:
 %   distances - array of size N, containing all patch distances
 
-    % TODO: implement
-    num_patches = size(patch_list); 
-    distances = zeros([num_patches(4), 1]); % n
-
-
+    % precalculate stuff
     masked_weight = mask .* weights; 
-    d_patch = double(patch); %precalculate patch as double
+    d_patch = double(patch); 
+
+    num_patches = size(patch_list); 
+    distances = zeros([num_patches(4), 1]); % n x 1
+
     for i = 1:num_patches(4)
         dist = double(patch_list(:, :, :, i)) - d_patch; 
         dist = sum(dist .^2, 3); 
         dist = dist .* masked_weight; 
         distances(i) = sum(dist, "all"); 
-        % recheck this distance function
+
         
+        % Compute diference from expected patch, square 
+        % every diference to get a stricly positive error. 
+        % Sum along 3rd dimension to remove channels
+        % Aply mask
+        % Sum everything and set it as the distance. 
+
+        % recheck this distance function
     end
 
     normalizer = 1 / sum(sum(masked_weight)); % normalize distances
