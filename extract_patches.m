@@ -32,8 +32,9 @@ patch_list = zeros(patch_size(1), patch_size(2), channels, num_patches);
 coordinates = zeros([num_patches, 2]); 
 
 counter = 0; 
-range_x = (margin(2) + 1):(image_size(2) - margin(2)); 
-range_y = (margin(1) + 1):(image_size(1) - margin(1)); 
+range_x = (margin(1) + 1):(image_size(1) - margin(1)); 
+range_y = (margin(2) + 1):(image_size(2) - margin(2)); 
+
 for x = range_x
     for y = range_y
         % [x, y] is the center of the current patch

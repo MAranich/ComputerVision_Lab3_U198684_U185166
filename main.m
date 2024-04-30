@@ -9,7 +9,7 @@ close all
 clc
 
 % Input
-sample_path = 'data/blobs.png'; 
+sample_path = 'data/bricks.png'; 
 sample = imread(sample_path);
 texture_size = [128, 128];
 patch_size = 13; % should be odd (3, 5, 7, etc.)
