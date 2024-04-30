@@ -31,7 +31,7 @@ num_patches = (image_size(1) - patch_size(1) + 1) * (image_size(2) - patch_size(
 patch_list = zeros(patch_size(1), patch_size(2), channels, num_patches); 
 coordinates = zeros([num_patches, 2]); 
 
-counter = 0; 
+counter = ; 
 range_x = (margin(2) + 1):(image_size(2) - margin(2)); 
 range_y = (margin(1) + 1):(image_size(1) - margin(1)); 
 for x = range_x
@@ -45,9 +45,8 @@ for x = range_x
     end
 end
 
-fprintf("Number of patches: %d \n\n", counter); 
-% for deafult image prints 1764. This is correct (acording to teacher). 
-% assert(counter == num_patches)
+counter - 1 % for deafult image prints 1764. This is correct (acording to teacher). 
+% assert(counter - 1 == num_patches)
 
 end
 

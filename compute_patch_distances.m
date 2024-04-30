@@ -39,7 +39,7 @@ function distances = compute_patch_distances(patch_list, patch, mask, weights)
         % recheck this distance function
     end
 
-    normalizer = 1 / sum(sum(masked_weight)); % normalize distances
+    normalizer = 1 / sum(sum(masked_weight)); % average
     distances = normalizer * distances; 
 
 
