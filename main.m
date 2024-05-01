@@ -9,7 +9,7 @@ close all
 clc
 
 % Input
-sample_path = 'data/bricks.png'; 
+sample_path = 'data/blob.png'; 
 sample = imread(sample_path);
 texture_size = [128, 128];
 patch_size = 13; % should be odd (3, 5, 7, etc.)
@@ -17,7 +17,9 @@ tolerance = 0.1;
 
 fprintf("Sample path: %s \nPatch size: %d \t\t Texture size: [%d, %d] \t\t Tolerance %d\n\n", sample_path, patch_size, texture_size(1), texture_size(2), tolerance); 
 
+tic
 [texture, copy_map] = synthesize_texture(sample, texture_size, patch_size, tolerance);
+toc
 
 % Result
 h1 = subplot(2, 2, 1);
